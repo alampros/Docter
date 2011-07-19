@@ -1,7 +1,11 @@
 /* 
    Some simple Github-like styles, with syntax highlighting CSS via Pygments.
 */
-
+html {
+	background:#fff;
+	margin:0;
+	padding:1em;
+}
 body{
 	font: 13.34px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.4em;
@@ -13,6 +17,8 @@ body{
 	padding:.7em;
 	text-align:left;
 	color:black;
+	width:920px;
+	border:1px solid #E9E9E9;
 }
 h1 {
 	font-size: 170%;

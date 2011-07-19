@@ -33,12 +33,4 @@ def syntax_highlighter(html)
   doc.at_css("body").inner_html.to_s
 end
 
-# def syntax_highlighter(html)
-#   doc = Nokogiri::HTML(html)
-#   doc.search("//pre[@lang]").each do |pre|
-#     pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
-#   end
-#   doc.to_s # doc.at_css("body").inner_html.to_s
-# end
-
 puts markdown(ARGF.read)
