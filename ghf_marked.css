@@ -83,6 +83,11 @@ a, a code {
 	text-decoration:none;
 }
 
+table td {
+	border-bottom: 1px solid #DDD!important;
+	padding: .2em 1em!important;
+}
+
 .shadow{
 	-webkit-box-shadow:0 5px 15px #000;
 	-moz-box-shadow:0 5px 15px #000;
