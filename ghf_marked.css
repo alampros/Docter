@@ -71,12 +71,16 @@ p {
 	white-space: pre-wrap;
 	word-wrap: break-word;
 }
-code{
-	background-color: #eee;
-	padding: 1px 3px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;	
+code {
+	font: 12px 'Bitstream Vera Sans Mono','Courier',monospace !important;
+	background-color: ghostWhite;
+	color: #444;
+	padding: 0 .2em;
+	border: 1px solid #DEDEDE;
+}
+a, a code {
+	color: #4183C4;
+	text-decoration:none;
 }
 
 .shadow{

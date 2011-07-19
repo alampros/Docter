@@ -2,16 +2,21 @@
 
 Get that restaurant github flavor at home in your editor.
 
-<center>![Screenshot][ss]</center>
+![Screenshot][ss]
 
-Uses github's own [`redcarpet`][redcarpet] library to provide accurate markdown previews in your local editor. This screenshot shows [Marked][marked] using `docter` as the markdown processor.
+Uses github's own [redcarpet][redcarpet] library to provide accurate markdown previews in your local editor. This screenshot shows [Marked][marked] using `docter` as the markdown processor.
 
-##Features:
+##GitHub Markdown Extensions Supported:
 
 * Fenced codeblocks
 * ~~Strikethru~~ support
 * Syntax highlighting via [`pygments`][pygments]
+* www.auto-linking.com/support
 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 
 
