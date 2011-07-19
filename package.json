@@ -11,10 +11,5 @@
 		"gfm" : "./bin/github-flavored-markdown.rb"
 		},
 	"dependencies": {
-		"cli":"0.3.x",
-		"resistance" : "*",
-		"logging":"*",
-		"creationix":"*",
-		"cli-color" : "*"
 	}
 }
