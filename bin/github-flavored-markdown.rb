@@ -1,36 +1,64 @@
 #!/usr/bin/ruby
+#  @author Aaron Lampros
+#
 #  Github-flavored markdown to HTML, in a command-line util.
 #
-#  $ cat README.md | ./ghmarkdown.rb
+#  $ cat README.md | ./github-flavored-markdown.rb
 #
 #  Notes:
-#
 #  You will need to install Pygments for syntax coloring
-#
+#  ```bash
 #    $ sudo easy_install pygments
+#  ```
 #
-#  Install the gems redcarpet, albino, and nokogiri
+#  Install the gems `redcarpet` and `Pygments`
 #
-#  To work with http://markedapp.com/ I also had to
-#    $ sudo ln -s /usr/local/bin/pygmentize /usr/bin
 #
 require 'rubygems'
 require 'redcarpet'
-require 'albino'
-require 'nokogiri'
+require 'Pygments'
 
-def markdown(text)
-  options = [:fenced_code,:generate_toc,:hard_wrap,:no_intraemphasis,:strikethrough,:gh_blockcode,:autolink,:xhtml,:tables]
-  html = Redcarpet.new(text, *options).to_html 
-  syntax_highlighter(html)
+class HTMLwithPygments < Redcarpet::Render::XHTML
+	# def doc_header()
+	#	puts Pygments.styles()
+			# monokai
+			# manni
+			# perldoc
+			# borland
+			# colorful
+			# default
+			# murphy
+			# vs
+			# trac
+			# tango
+			# fruity
+			# autumn
+			# bw
+			# emacs
+			# vim
+			# pastie
+			# friendly
+			# native
+	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
+	# end
+	def block_code(code, language)
+		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
+	end
 end
 
-def syntax_highlighter(html)
-  doc = Nokogiri::HTML(html)
-  doc.search("//pre[@lang]").each do |pre|
-    pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
-  end
-  doc.at_css("body").inner_html.to_s
+
+def fromMarkdown(text)
+	# options = [:fenced_code => true, :generate_toc => true, :hard_wrap => true, :no_intraemphasis => true, :strikethrough => true ,:gh_blockcode => true, :autolink => true, :xhtml => true, :tables => true]
+	markdown = Redcarpet::Markdown.new(HTMLwithPygments,
+		:fenced_code_blocks => true,
+		:no_intra_emphasis => true,
+		:autolink => true,
+		:strikethrough => true,
+		:lax_html_blocks => true,
+		:superscript => true,
+		:tables => true,
+		:xhtml => true)
+	markdown.render(text)
 end
 
-puts markdown(ARGF.read)
+puts fromMarkdown(ARGF.read)

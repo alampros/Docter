@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 var exec = require('child_process').exec,
 	spawn = require('child_process').spawn,
-	// gfm = spawn('./bin/github-flavored-markdown.rb'),
+	// gfm = spawn('./bin/github-flavored-markdown.rb');
 	gfm = spawn('/usr/local/bin/gfm');
 	
 	gfm.stdout.on('data', function(data) {

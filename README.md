@@ -6,15 +6,25 @@ Get that restaurant github flavor at home in your editor.
 
 Uses github's own [redcarpet][redcarpet] library to provide accurate markdown previews in your local editor. This screenshot shows [Marked][marked] using `docter` as the markdown processor.
 
+##Changes
+
+###2012-01-17
+
+* Updated styles to match new GitHub styles
+* Updated gfm wrapper for `Redcarpet` 2
+* Removed `nokigiri` and `albino` dependencies
+* Using [pygments.rb](https://github.com/tmm1/pygments.rb) wrapper instead
+
+---
+
 ##[GitHub Flavored Markdown][ghfm] Extensions Supported:
 
 * Fenced codeblocks
 
 	```javascript
-	process.stdin.on('data', function (chunk) {
-		gfm.stdin.write(chunk);
-		gfm.stdin.end();
-	});
+	var awesome = new BadassClass (param) {
+		return "string"
+	}
 	```
 * ~~Strikethru~~ support
 * Syntax highlighting via [`pygments`][pygments]
@@ -36,6 +46,8 @@ Uses github's own [redcarpet][redcarpet] library to provide accurate markdown pr
 	| Content Cell  | Content Cell  |
 	| Content Cell  | Content Cell  |
 
+
+
 #Why NodeJS and not ruby?
 
 I have future plans for this in a node project. And because it's my party.
@@ -44,21 +56,18 @@ I have future plans for this in a node project. And because it's my party.
 
 Lots. Ungodly heaps of requirements.
 
-* [NodeJS][node]
-* [NPM][npm]
-* [Ruby][ruby]
-* [Rubygems][gems]
-* Various gems
-
-	```bash
-	$ gem install redcarpet albino nokogiri
-	```
+* [NodeJS][node] and [NPM][npm] if you plan on using the node wrapper.
+* [Ruby][ruby] & [Rubygems][gems]
 * [Pygments][pygments]
 
 	```bash
 	$ sudo easy_install pygments
 	```
+* Various gems
 
+	```bash
+	$ gem install redcarpet Pygments
+	```
 
 #Usage
 
@@ -75,13 +84,26 @@ Both of these executables take markdown input through STDIN and output formatted
 
 ##Using with [Marked.app][marked]
 
-1. In Marked's preferences, set the custom styles to the included `ghf_marked.css`  
-	![Screenshot][ss_css]
-2. Set the markdown processor to the linked executable:  
-	![Screenshot][ss_marked]
+1. Set the markdown processor to either of the linked executables. If you don't plan on doing anything with the node wrapper, I would suggest using the straight ruby wrapper (`gfm`).
+2. Optionally, add the `ghf_marked.css` (in this repo) to Marked's custom CSS list.
 
 
+#Other styles
 
+Uncomment the `doc_header()` function in `github-flavored-markdown.rb` and include any of the built-in styles from pygments. Replace `:style => 'vs'` with one of the styles in the comment block.
+
+**Outputting the `emacs` style to the document header:**
+
+```ruby
+class HTMLwithPygments < Redcarpet::Render::XHTML
+	def doc_header()
+		'<style>' + Pygments.css('.highlight',:style => 'emacs') + '</style>'
+	end
+	def block_code(code, language)
+		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
+	end
+end
+```
 
 
 
