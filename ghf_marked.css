@@ -71,11 +71,6 @@ hr {
 	padding: 0;
 }
 
-br+br {
-	line-height:0;
-	height:0;
-	display:none;
-}
 
 p {
 	margin: 1em 0!important;
