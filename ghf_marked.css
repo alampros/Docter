@@ -153,7 +153,9 @@ table tr:nth-child(2n)
 {
 	background-color:#f8f8f8;
 }
-
+table tr th[align="center"], table tr td[align="center"] {
+	text-align:center;
+}
 table tr th, table tr td
 {
 	border:1px solid #ccc;

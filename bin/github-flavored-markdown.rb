@@ -56,6 +56,7 @@ def fromMarkdown(text)
 		:strikethrough => true,
 		:lax_html_blocks => true,
 		:superscript => true,
+		:hard_wrap => true,
 		:tables => true,
 		:xhtml => true)
 	markdown.render(text)
