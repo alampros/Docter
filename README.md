@@ -58,15 +58,10 @@ Lots. Ungodly heaps of requirements.
 
 * [NodeJS][node] and [NPM][npm] if you plan on using the node wrapper.
 * [Ruby][ruby] & [Rubygems][gems]
-* [Pygments][pygments]
-
-	```bash
-	$ sudo easy_install pygments
-	```
 * Various gems
 
 	```bash
-	$ gem install redcarpet Pygments
+	$ gem install redcarpet pygments.rb
 	```
 
 #Usage

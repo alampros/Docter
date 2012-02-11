@@ -16,8 +16,8 @@
 #
 require 'rubygems'
 require 'redcarpet'
-require 'Pygments'
 require 'pathname'
+require 'pygments.rb'
 
 class HTMLwithPygments < Redcarpet::Render::XHTML
 	def doc_header()
