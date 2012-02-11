@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 #  @author Aaron Lampros
 #
 #  Github-flavored markdown to HTML, in a command-line util.
