@@ -16,10 +16,13 @@
 #
 require 'rubygems'
 require 'redcarpet'
+require 'pathname'
 require 'pygments.rb'
 
 class HTMLwithPygments < Redcarpet::Render::XHTML
-	# def doc_header()
+	def doc_header()
+    ghf_css_path = File.join File.dirname(File.dirname Pathname.new(__FILE__).realpath),
+                              'ghf_marked.css'
 	#	puts Pygments.styles()
 			# monokai
 			# manni
@@ -40,7 +43,8 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 			# friendly
 			# native
 	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
-	# end
+		'<style>' + File.read(ghf_css_path) + '</style>'
+	end
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
 	end
