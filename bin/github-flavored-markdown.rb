@@ -43,7 +43,11 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 			# friendly
 			# native
 	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
-		'<style>' + File.read(ghf_css_path) + '</style>' + '<article>'
+    if UNSTYLED 
+      '<article>'
+    else
+      '<style>' + File.read(ghf_css_path) + '</style>' + '<article>'
+    end
 	end
   def doc_footer
     '</article>'
@@ -69,4 +73,5 @@ def fromMarkdown(text)
 	markdown.render(text)
 end
 
-puts fromMarkdown(ARGF.read)
+UNSTYLED = (ARGV.first == '--unstyled')
+puts fromMarkdown(STDIN.read)
