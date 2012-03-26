@@ -43,8 +43,11 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 			# friendly
 			# native
 	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
-		'<style>' + File.read(ghf_css_path) + '</style>'
+		'<style>' + File.read(ghf_css_path) + '</style>' + '<article>'
 	end
+  def doc_footer
+    '</article>'
+  end
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
 	end
