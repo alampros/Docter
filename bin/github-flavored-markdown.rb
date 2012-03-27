@@ -44,13 +44,13 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 			# native
 	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
     if UNSTYLED 
-      '<article>'
+      '<div class="md"><article>'
     else
-      '<style>' + File.read(ghf_css_path) + '</style>' + '<article>'
+      '<style>' + File.read(ghf_css_path) + '</style><div class="md"><article>'
     end
 	end
   def doc_footer
-    '</article>'
+    '</article></div>'
   end
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
