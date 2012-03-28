@@ -4,18 +4,23 @@
 html {
 	background:#fff;
 	margin:0;
-	padding:1em;
+	padding:0;
 }
 body {
 	font: 14px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.6;
-	margin: 0;
-	padding:3px;
+	margin: 0 auto;
+  padding: 20px;
 	text-align:left;
 	color: #333;
 	width:920px;
+}
+
+.md {
 	background-color: #eee;
 	border-radius:3px;
+  margin: 0;
+	padding:3px;
 }
 
 article {
