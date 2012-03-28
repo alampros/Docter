@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 #  @author Aaron Lampros
 #
 #  Github-flavored markdown to HTML, in a command-line util.
@@ -16,10 +16,13 @@
 #
 require 'rubygems'
 require 'redcarpet'
-require 'Pygments'
+require 'pathname'
+require 'pygments.rb'
 
 class HTMLwithPygments < Redcarpet::Render::XHTML
-	# def doc_header()
+	def doc_header()
+    ghf_css_path = File.join File.dirname(File.dirname Pathname.new(__FILE__).realpath),
+                              'ghf_marked.css'
 	#	puts Pygments.styles()
 			# monokai
 			# manni
@@ -40,7 +43,15 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 			# friendly
 			# native
 	# 	'<style>' + Pygments.css('.highlight',:style => 'vs') + '</style>'
-	# end
+    if UNSTYLED 
+      '<div class="md"><article>'
+    else
+      '<style>' + File.read(ghf_css_path) + '</style><div class="md"><article>'
+    end
+	end
+  def doc_footer
+    '</article></div>'
+  end
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
 	end
@@ -62,4 +73,5 @@ def fromMarkdown(text)
 	markdown.render(text)
 end
 
-puts fromMarkdown(ARGF.read)
+UNSTYLED = (ARGV.first == '--unstyled')
+puts fromMarkdown(STDIN.read)
