@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Docter by alampros</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Docter</h1>
+        <p>Get that restaurant github flavor at home in your editor.</p>
+        <p class="view"><a href="https://github.com/alampros/Docter">View the Project on GitHub <small>alampros/Docter</small></a></p>
+        <ul>
+          <li><a href="https://github.com/alampros/Docter/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/alampros/Docter/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/alampros/Docter">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="http://dl.dropbox.com/u/1127652/github/docter_syntax_screenshot.png" alt="Screenshot" title="Screenshot"></p>
+
+<p>Uses github's own <a href="https://github.com/tanoku/redcarpet">redcarpet</a> library to provide accurate markdown previews in your local editor. This screenshot shows <a href="http://markedapp.com/">Marked</a> using <code>docter</code> as the markdown processor.</p>
+
+<h2>Changes</h2>
+
+<h3>2012-01-17</h3>
+
+<ul>
+<li>Updated styles to match new GitHub styles</li>
+<li>Updated gfm wrapper for <code>Redcarpet</code> 2</li>
+<li>Removed <code>nokigiri</code> and <code>albino</code> dependencies</li>
+<li>Using <a href="https://github.com/tmm1/pygments.rb">pygments.rb</a> wrapper instead</li>
+</ul><hr><h2>
+<a href="http://github.github.com/github-flavored-markdown/" title="Github Flavored Markdown">GitHub Flavored Markdown</a> Extensions Supported:</h2>
+
+<ul>
+<li>
+<p>Fenced codeblocks</p>
+
+<div class="highlight">
+<pre><span class="kd">var</span> <span class="nx">awesome</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BadassClass</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">"string"</span>
+<span class="p">}</span>
+</pre>
+</div>
+</li>
+<li><p><del>Strikethru</del> support</p></li>
+<li>
+<p>Syntax highlighting via <a href="http://pygments.org/"><code>pygments</code></a></p>
+
+<div class="highlight">
+<pre><span class="nb">require</span> <span class="s1">'redcarpet'</span>
+<span class="k">def</span> <span class="nf">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+  <span class="n">options</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:fenced_code</span><span class="p">,</span><span class="ss">:generate_toc</span><span class="p">,</span><span class="ss">:hard_wrap</span><span class="p">,</span><span class="ss">:no_intraemphasis</span><span class="p">,</span><span class="ss">:strikethrough</span><span class="p">,</span><span class="ss">:gh_blockcode</span><span class="p">,</span><span class="ss">:autolink</span><span class="p">,</span><span class="ss">:xhtml</span><span class="p">,</span><span class="ss">:tables</span><span class="o">]</span>
+  <span class="n">html</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span> 
+  <span class="n">syntax_highlighter</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="k">end</span>
+</pre>
+</div>
+</li>
+<li><p><a href="http://www.auto-linking.com">www.auto-linking.com</a></p></li>
+<li>
+<p>table support</p>
+
+<table>
+<tr>
+<td>First Header</td>
+<td>Second Header</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</table>
+</li>
+</ul><h1>Why NodeJS and not ruby?</h1>
+
+<p>I have future plans for this in a node project. And because it's my party.</p>
+
+<h1>Requirements</h1>
+
+<p>Lots. Ungodly heaps of requirements.</p>
+
+<ul>
+<li>
+<a href="http://nodejs.org/">NodeJS</a> and <a href="http://npmjs.org/">NPM</a> if you plan on using the node wrapper.</li>
+<li>
+<a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> &amp; <a href="http://rubygems.org/">Rubygems</a>
+</li>
+<li>
+<p>Various gems</p>
+
+<div class="highlight">
+<pre><span class="nv">$ </span>gem install redcarpet pygments.rb
+</pre>
+</div>
+</li>
+</ul><h1>Usage</h1>
+
+<ol>
+<li>Clone this repo locally</li>
+<li>
+<code>cd</code> to the repo</li>
+<li><code>[sudo] npm -g install</code></li>
+</ol><p>This will install the package into your global <code>node_modules</code> dir (usually <code>/usr/local/lib/node_modules</code>). It will also symbolically link two executables into your path:</p>
+
+<ol>
+<li>
+<code>docter</code>: the nodejs wrapper.</li>
+<li>
+<code>gfm</code>: the ruby redcarpet/pygments wrapper.</li>
+</ol><p>Both of these executables take markdown input through STDIN and output formatted HTML on STDOUT.</p>
+
+<h2>Using with <a href="http://markedapp.com/">Marked.app</a>
+</h2>
+
+<ol>
+<li>Set the markdown processor to either of the linked executables. If you don't plan on doing anything with the node wrapper, I would suggest using the straight ruby wrapper (<code>gfm</code>).</li>
+<li>Optionally, add the <code>ghf_marked.css</code> (in this repo) to Marked's custom CSS list.</li>
+</ol><h1>Other styles</h1>
+
+<p>Uncomment the <code>doc_header()</code> function in <code>github-flavored-markdown.rb</code> and include any of the built-in styles from pygments. Replace <code>:style =&gt; 'vs'</code> with one of the styles in the comment block.</p>
+
+<p><strong>Outputting the <code>emacs</code> style to the document header:</strong></p>
+
+<div class="highlight">
+<pre><span class="k">class</span> <span class="nc">HTMLwithPygments</span> <span class="o">&lt;</span> <span class="no">Redcarpet</span><span class="o">::</span><span class="no">Render</span><span class="o">::</span><span class="no">XHTML</span>
+    <span class="k">def</span> <span class="nf">doc_header</span><span class="p">()</span>
+        <span class="s1">'&lt;style&gt;'</span> <span class="o">+</span> <span class="no">Pygments</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">'.highlight'</span><span class="p">,</span><span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s1">'emacs'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'&lt;/style&gt;'</span>
+    <span class="k">end</span>
+    <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">language</span><span class="p">)</span>
+        <span class="no">Pygments</span><span class="o">.</span><span class="n">highlight</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="ss">:lexer</span> <span class="o">=&gt;</span> <span class="n">language</span><span class="p">,</span> <span class="ss">:options</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s1">'utf-8'</span><span class="p">})</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre>
+</div>
+
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/alampros">alampros</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
