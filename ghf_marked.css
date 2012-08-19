@@ -6,14 +6,22 @@ html {
 	margin:0;
 	padding:0;
 }
+
 body {
 	font: 14px helvetica,arial,freesans,clean,sans-serif;
 	line-height: 1.6;
 	margin: 0 auto;
-  padding: 20px;
+  padding: 25px;
 	text-align:left;
 	color: #333;
-	width:920px;
+	min-width:500px;
+	max-width:920px;
+}
+
+#wrapper {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .md {
