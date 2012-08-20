@@ -1,19 +1,5 @@
 #!/usr/bin/env ruby
-#  @author Aaron Lampros
-#
-#  Github-flavored markdown to HTML, in a command-line util.
-#
-#  $ cat README.md | ./github-flavored-markdown.rb
-#
-#  Notes:
-#  You will need to install Pygments for syntax coloring
-#  ```bash
-#    $ sudo easy_install pygments
-#  ```
-#
-#  Install the gems `redcarpet` and `Pygments`
-#
-#
+
 require 'rubygems'
 require 'redcarpet'
 require 'pathname'

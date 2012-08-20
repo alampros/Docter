@@ -29,7 +29,43 @@ puts markdown.to_html
 
 ## Installation
 
-…
+### Automatic installation
+
+To install Flavored, open Terminal and type:
+
+```bash
+curl -L https://raw.github.com/porada/Flavored/marked/install.sh | sh
+```
+
+The script will automatically install all required components, download Flavored’s files and update Marked’s preferences.
+
+To upgrade, simply execute the line again.
+
+### Manual installation
+
+1. Install [Pygments](http://pygments.org/):
+
+        sudo easy_install pygments
+        sudo ln -s /usr/local/bin/pygmentize /usr/bin
+
+2. Install `redcarpet` and `pygments.rb` [gems](http://rubygems.org/):
+
+        sudo gem install redcarpet
+        sudo gem install pygments.rb
+
+3. [Download](https://github.com/porada/Flavored/zipball/marked) or clone Flavored’s repository:
+
+        git clone https://github.com/porada/Flavored.git
+
+4. Make `github-flavored-marked.rb` executable:
+
+        chmod a+x github-flavored-marked.rb
+
+5. Set the **full path** to `github-flavored-marked.rb` in *Marked › Preferences › Behavior › Custom Processor*.
+
+6. Make sure `github-flavored-marked.css` is in located in the same directory as `github-flavored-marked.rb`.
+
+    **Don’t add** the stylesheet in *Marked › Preferences › Style*, because the executable already links to it.
 
 ## Credits
 
