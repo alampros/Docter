@@ -5,16 +5,16 @@ require 'redcarpet'
 require 'pathname'
 require 'pygments.rb'
 
-class HTMLwithPygments < Redcarpet::Render::XHTML
+class HTMLwithPygments < Redcarpet::Render::HTML
 	def doc_header()
-		ghf_css_path = File.join(
-			File.dirname(Pathname.new(__FILE__).realpath),
-			'github-flavored-marked.css');
-
-		'<style>' + File.read(ghf_css_path) + '</style><div class="md"><article>'
+		"<div class=\"md\">\n<article>\n<!-- -->\n"
 	end
 	def doc_footer
-		'</article></div>'
+		stylesheet = File.read(File.join(
+			File.dirname(Pathname.new(__FILE__).realpath),
+			'github-flavored-marked.css'));
+
+		"\n<!-- -->\n</article>\n</div>\n<style>\n\n" + stylesheet + "\n\n</style>"
 	end
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
@@ -30,8 +30,7 @@ def fromMarkdown(text)
 		:lax_html_blocks => true,
 		:superscript => true,
 		:hard_wrap => true,
-		:tables => true,
-		:xhtml => true)
+		:tables => true)
 	markdown.render(text)
 end
 
