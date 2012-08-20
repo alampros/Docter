@@ -1,61 +1,36 @@
-#Docter
+# Flavored
+## That restaurant GitHub flavor for [Marked](http://markedapp.com/)
 
-Get that restaurant github flavor at home in your editor.
+**Flavored** is the [GitHub Flavored Markdown](http://github.github.com/github-flavored-markdown/) processor for **Marked** that supports the following syntax extensions:
 
-![Screenshot][ss]
+### Fenced code blocks with syntax highlighting
 
-Uses github's own [redcarpet][redcarpet] library to provide accurate markdown previews in your local editor. This screenshot shows [Marked][marked] using `docter` as the markdown processor.
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
 
-##[GitHub Flavored Markdown][ghfm] Extensions Supported:
+### Tables
 
-* Fenced codeblocks
+| Dividend | Divisor | Quotient |
+| -------- | ------- | -------- |
+| 1024     | 16      | 64       |
+| 3330     | 5       | 666      |
+| *i* - 1  | *i* + 1 | *i*      |
+| *i* + 1  | *i* - 1 | -*i*     |
 
-	```javascript
-	var awesome = new BadassClass (param) {
-		return "string"
-	}
-	```
+### Other features
 
-* ~~Strikethru~~ support
+* URL autolinking,
+* newlines in paragraphs,
+* `multiple_underscores_in_words`,
+* `~~strikethrough~~` *and more.*
 
-* Syntax highlighting via [`pygments`][pygments]
+## Installation
 
-	```ruby
-	require 'redcarpet'
-	def markdown(text)
-	  options = [:fenced_code,:generate_toc,:hard_wrap,:no_intraemphasis,:strikethrough,:gh_blockcode,:autolink,:xhtml,:tables]
-	  html = Redcarpet.new(text, *options).to_html 
-	  syntax_highlighter(html)
-	end
-	```
+…
 
-* www.auto-linking.com
+## Credits
 
-* table support
-
-	| First Header  | Second Header |
-	| ------------- | ------------- |
-	| Content Cell  | Content Cell  |
-	| Content Cell  | Content Cell  |
-
-### Requirements
-
-* Various gems
-
-	```bash
-	$ gem install redcarpet pygments.rb
-	```
-
-## Using with [Marked.app][marked]
-
-1. Set the markdown processor to either of the linked executables. If you don't plan on doing anything with the node wrapper, I would suggest using the straight ruby wrapper (`gfm`).
-
-2. Optionally, add the `ghf_marked.css` (in this repo) to Marked's custom CSS list.
-
-[ghfm]: http://github.github.com/github-flavored-markdown/ "Github Flavored Markdown"
-[ss]: http://dl.dropbox.com/u/1127652/github/docter_syntax_screenshot.png  "Screenshot"
-[redcarpet]: https://github.com/tanoku/redcarpet
-[pygments]: http://pygments.org/
-[marked]: http://markedapp.com/
-[ruby]: http://www.ruby-lang.org/en/downloads/
-[gems]: http://rubygems.org/
+Thanks to [Aaron Lampros](https://github.com/alampros), the creator of Flavored’s code base, [Docter](https://github.com/alampros/Docter).
