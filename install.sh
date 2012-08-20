@@ -38,15 +38,18 @@ tput setaf 243
 curl -#OL https://raw.github.com/porada/Flavored/marked/$file
 tput sgr0
 
-# Setting Marked’s custom processor
-echo; echo "Setting $file as Marked’s custom processor"
+# Configuring Marked
+echo; echo "Configuring Marked"
 tput setaf 243
-processor=$PWD/$file
+processor="$PWD/github-flavored-marked.rb"
 chmod a+x "$processor"
 defaults write com.brettterpstra.marky customMarkdownProcessor -string "$processor"
-defaults write com.brettterpstra.marky useCustomMarkdownProcessor -bool true
+defaults write com.brettterpstra.marky useCustomMarkdownProcessor -int 1
+defaults write com.brettterpstra.marky defaultPreviewStyle -int 0
+defaults write com.brettterpstra.marky showStylePicker -int 0
 echo "$processor"
 tput sgr0
 
 # Finish
 echo; echo "All done."
+echo "Restart Marked if you’re using it."

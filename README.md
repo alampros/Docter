@@ -34,10 +34,10 @@ puts markdown.to_html
 To install Flavored, open Terminal and type:
 
 ```bash
-curl -L https://raw.github.com/porada/Flavored/marked/install.sh | sh
+curl -#L https://raw.github.com/porada/Flavored/marked/install.sh | sh
 ```
 
-The script will automatically install all required components, download Flavored’s files and update Marked’s preferences.
+The script will automatically install all required components, download Flavored’s files and configure Marked.
 
 To upgrade, simply execute the line again.
 
@@ -48,24 +48,33 @@ To upgrade, simply execute the line again.
         sudo easy_install pygments
         sudo ln -s /usr/local/bin/pygmentize /usr/bin
 
-2. Install `redcarpet` and `pygments.rb` [gems](http://rubygems.org/):
+1. Install `redcarpet` and `pygments.rb` [gems](http://rubygems.org/):
 
         sudo gem install redcarpet
         sudo gem install pygments.rb
 
-3. [Download](https://github.com/porada/Flavored/zipball/marked) or clone Flavored’s repository:
+1. [Download](https://github.com/porada/Flavored/zipball/marked) or clone Flavored’s repository:
 
         git clone https://github.com/porada/Flavored.git
 
-4. Make `github-flavored-marked.rb` executable:
+1. Make `github-flavored-marked.rb` executable:
 
         chmod a+x github-flavored-marked.rb
 
-5. Set the **full path** to `github-flavored-marked.rb` in *Marked › Preferences › Behavior › Custom Processor*.
+1. Configure Marked:
 
-6. Make sure `github-flavored-marked.css` is in located in the same directory as `github-flavored-marked.rb`.
+    In the first line below, replace `$FULL_PATH` with the full path to `github-flavored-marked.rb`. No `~` expansion there.
 
-    **Don’t add** the stylesheet in *Marked › Preferences › Style*, because the executable already links to it.
+        # Use custom processor
+        defaults write com.brettterpstra.marky customMarkdownProcessor -string $FULL_PATH
+        defaults write com.brettterpstra.marky useCustomMarkdownProcessor -int 1
+        # Use Swiss stylesheet as the default
+        defaults write com.brettterpstra.marky defaultPreviewStyle -int 0
+        defaults write com.brettterpstra.marky showStylePicker -int 0
+
+    Don’t add the stylesheet in *Preferences › Style*, because `github-flavored-marked.rb` already uses it.
+
+1. Make sure `github-flavored-marked.css` is in located in the same directory as `github-flavored-marked.rb`.
 
 ## Credits
 
