@@ -28,14 +28,14 @@ cd "$destination"
 file=github-flavored-marked.css
 echo; echo "Downloading $file"
 tput setaf 243
-curl -#OL https://raw.github.com/porada/Flavored/marked/$file
+curl -#OL https://raw.github.com/porada/Flavored/master/$file
 tput sgr0
 
 # Download github-flavored-marked.rb
 file=github-flavored-marked.rb
 echo; echo "Downloading $file"
 tput setaf 243
-curl -#OL https://raw.github.com/porada/Flavored/marked/$file
+curl -#OL https://raw.github.com/porada/Flavored/master/$file
 tput sgr0
 
 # Configuring Marked

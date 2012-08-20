@@ -34,7 +34,7 @@ puts markdown.to_html
 To install Flavored, open Terminal and type:
 
 ```bash
-curl -#L https://raw.github.com/porada/Flavored/marked/install.sh | sh
+curl -#L https://raw.github.com/porada/Flavored/master/install.sh | sh
 ```
 
 The script will automatically install all required components, download Flavored’s files and configure Marked.
@@ -53,7 +53,7 @@ To upgrade, simply execute the line again.
         sudo gem install redcarpet
         sudo gem install pygments.rb
 
-1. [Download](https://github.com/porada/Flavored/zipball/marked) or clone Flavored’s repository:
+1. [Download](https://github.com/porada/Flavored/zipball/master) or clone Flavored’s repository:
 
         git clone https://github.com/porada/Flavored.git
 
