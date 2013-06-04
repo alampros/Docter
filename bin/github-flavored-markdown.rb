@@ -18,6 +18,7 @@ require 'rubygems'
 require 'redcarpet'
 require 'pathname'
 require 'pygments.rb'
+require 'rexml/document'
 
 class HTMLwithPygments < Redcarpet::Render::XHTML
 	def doc_header()
@@ -55,8 +56,33 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
 	end
-end
+  def header(title, level)
+    @headers ||= []
 
+    title_elements = REXML::Document.new(title)
+    flattened_title = title_elements.inject('') do |flattened, element|
+      flattened +=  if element.respond_to?(:text)
+                      element.text
+                    else
+                      element.to_s
+                    end
+    end
+    permalink = flattened_title.downcase.gsub(/[^a-z\s]/, '').gsub(/\W+/, "-")
+    
+    # for extra credit: implement this as its own method
+    if @headers.include?(permalink)
+      permalink += "_1"
+       # my brain hurts
+      loop do
+        break if !@headers.include?(permalink)
+        # generate titles like foo-bar_1, foo-bar_2
+        permalink.gsub!(/\_(\d+)$/, "_#{$1.to_i + 1}")
+      end
+    end
+    @headers << permalink
+    %(\n<h#{level}><a name="#{permalink}" class="anchor" href="##{permalink}"><span class="anchor-icon"></span></a>#{title}</h#{level}>\n)
+  end
+end
 
 def fromMarkdown(text)
 	# options = [:fenced_code => true, :generate_toc => true, :hard_wrap => true, :no_intraemphasis => true, :strikethrough => true ,:gh_blockcode => true, :autolink => true, :xhtml => true, :tables => true]
