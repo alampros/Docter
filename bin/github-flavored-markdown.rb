@@ -90,7 +90,7 @@ def fromMarkdown(text)
 		:tables => true,
 		:fenced_code_blocks => true,
 		:autolink => true,
-		:disable_indented_code_blocks => true,
+		:disable_indented_code_blocks => false,
 		:strikethrough => true,
 		:lax_spacing => true,
 		:space_after_headers => false,
