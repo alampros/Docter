@@ -13,7 +13,7 @@ body {
   padding: 20px;
 	text-align:left;
 	color: #333;
-	width:920px;
+	max-width:920px;
 }
 
 .md {
