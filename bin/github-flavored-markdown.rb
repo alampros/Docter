@@ -67,7 +67,7 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
                       element.to_s
                     end
     end
-    permalink = flattened_title.downcase.gsub(/[^a-z\s]/, '').gsub(/\W+/, "-")
+    permalink = flattened_title.downcase.gsub(/[^a-z\d\s]/, '').gsub(/\W+/, "-")
     
     # for extra credit: implement this as its own method
     if @headers.include?(permalink)
