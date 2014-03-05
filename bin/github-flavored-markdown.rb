@@ -56,7 +56,10 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 	def block_code(code, language)
 		Pygments.highlight(code, :lexer => language, :options => {:encoding => 'utf-8'})
 	end
-  def header(title, level)
+  # newer versions of RedCarpet have a 3rd 'anchor' argument, but make it optional to be
+  # backward compatible with Ruby 1.8.7, which is only compatible upto Redcarpet 2.3.0,
+  # which has no 3rd argument
+  def header(title, level, anchor=nil)
     @headers ||= []
 
     title_elements = REXML::Document.new(title)
