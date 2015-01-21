@@ -11,9 +11,9 @@ var exec = require('child_process').exec,
 
 	})
 
-process.stderr.on('data',function(err) {
+process.stderr.readable && (process.stderr.on('data',function(err) {
 	process.stdout.write('ERR: '+err);
-})
+}))
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
