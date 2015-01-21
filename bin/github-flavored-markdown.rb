@@ -88,17 +88,18 @@ class HTMLwithPygments < Redcarpet::Render::XHTML
 end
 
 def fromMarkdown(text)
-	# options = [:fenced_code => true, :generate_toc => true, :hard_wrap => true, :no_intraemphasis => true, :strikethrough => true ,:gh_blockcode => true, :autolink => true, :xhtml => true, :tables => true]
 	markdown = Redcarpet::Markdown.new(HTMLwithPygments,
-		:fenced_code_blocks => true,
 		:no_intra_emphasis => true,
-		:autolink => true,
-		:strikethrough => true,
-		:lax_html_blocks => true,
-		:superscript => true,
-		:hard_wrap => true,
 		:tables => true,
-		:xhtml => true)
+		:fenced_code_blocks => true,
+		:autolink => true,
+		:disable_indented_code_blocks => false,
+		:strikethrough => true,
+		:lax_spacing => true,
+		:space_after_headers => false,
+		:superscript => false,
+		:underline => false,
+		:highlight => false)
 	markdown.render(text)
 end
 
