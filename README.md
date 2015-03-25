@@ -1,6 +1,10 @@
 #Docter
 
-Get that restaurant github flavor at home in your editor.
+### :exclamation: NO LONGER MAINTAINED :exclamation:
+
+Check out [chjj/marked](https://github.com/chjj/marked) if you're looking for a good javascript markdown parser. Sorry!
+
+---
 
 ![Screenshot][ss]
 
