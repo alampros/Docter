@@ -1,4 +1,4 @@
-#Docter
+# Docter
 
 ### :exclamation: NO LONGER MAINTAINED :exclamation:
 
@@ -10,9 +10,9 @@ Check out [chjj/marked](https://github.com/chjj/marked) if you're looking for a 
 
 Uses github's own [redcarpet][redcarpet] library to provide accurate markdown previews in your local editor. This screenshot shows [Marked][marked] using `docter` as the markdown processor.
 
-##Changes
+## Changes
 
-###2012-01-17
+### 2012-01-17
 
 * Updated styles to match new GitHub styles
 * Updated gfm wrapper for `Redcarpet` 2
@@ -21,7 +21,7 @@ Uses github's own [redcarpet][redcarpet] library to provide accurate markdown pr
 
 ---
 
-##[GitHub Flavored Markdown][ghfm] Extensions Supported:
+## [GitHub Flavored Markdown][ghfm] Extensions Supported:
 
 * Fenced codeblocks
 
@@ -52,11 +52,11 @@ Uses github's own [redcarpet][redcarpet] library to provide accurate markdown pr
 
 
 
-#Why NodeJS and not ruby?
+# Why NodeJS and not ruby?
 
 I have future plans for this in a node project. And because it's my party.
 
-#Requirements
+# Requirements
 
 Lots. Ungodly heaps of requirements.
 
@@ -68,7 +68,7 @@ Lots. Ungodly heaps of requirements.
 	$ gem install redcarpet pygments.rb
 	```
 
-#Usage
+# Usage
 
 1. Clone this repo locally
 2. `cd` to the repo
@@ -81,13 +81,13 @@ This will install the package into your global `node_modules` dir (usually `/usr
 	
 Both of these executables take markdown input through STDIN and output formatted HTML on STDOUT.
 
-##Using with [Marked.app][marked]
+## Using with [Marked.app][marked]
 
 1. Set the markdown processor to either of the linked executables. If you don't plan on doing anything with the node wrapper, I would suggest using the straight ruby wrapper (`gfm`).
 2. Optionally, add the `ghf_marked.css` (in this repo) to Marked's custom CSS list.
 
 
-#Other styles
+# Other styles
 
 Uncomment the `doc_header()` function in `github-flavored-markdown.rb` and include any of the built-in styles from pygments. Replace `:style => 'vs'` with one of the styles in the comment block.
 
